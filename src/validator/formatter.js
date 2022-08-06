@@ -1,4 +1,4 @@
-let string  = "   functionup  ";
+let string  = "          functionup         ";
 const trimmer = () => {
     return string.trim();
 }
