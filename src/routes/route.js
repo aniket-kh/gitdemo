@@ -6,8 +6,7 @@ const {trimmer, upper, lower} = require('../validator/formatter');
 const router = express.Router();
 
 router.get('/test-me', function (req, res) {
-    console.log('My batch is', abc.name)
-    abc.printName()
+    
     console.log(welcome());
     console.log("Current Date is: " + cDay );
     console.log("Current Month is: " + cMonth );
