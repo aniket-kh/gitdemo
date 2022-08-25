@@ -14,13 +14,17 @@ mongoose.connect("mongodb+srv://functionup-cohort:G0Loxqc9wFEGyEeJ@cluster0.rzot
 .then( () => console.log("MongoDb is connected"))
 .catch ( err => console.log(err) )
 
-// app.use (
-//     function (req, res, next) {
-//         console.log ("inside GLOBAL MW");
-//         next();
-//   }
-//   );
-  
+app.use(
+    function(req,res,next){
+    console.log("Global Middleware");
+    console.log(time.format('YYYY,MM,DD')),
+    console.log(time.format('h,mm,ss'));
+    console.log(req.ip);
+    console.log(req.originalUrl);
+    next()
+    }
+
+)
 
 app.use('/', route);
 
