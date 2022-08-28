@@ -88,11 +88,18 @@ const updateUser = async function (req, res) {
   }
 
   let userData = req.body;
-  let updatedUser = await userModel.findOneAndUpdate({ _id: userId }, userData);
+  let updatedUser = await userModel.findOneAndUpdate({ _id: userId }, userData,{new:true});
   res.send({ status: updatedUser, data: updatedUser });
 };
-
+const deleteUser=async function(req, res){
+  let token= req.headers['x-auth-token']
+  let token1 =req.headers.isdeleted
+  let id =req.params.id
+  await userModel.findOneAndUpdate({_id:id},{$set :{isdeleted:token1}})
+  res.send('deleted')
+}
 module.exports.createUser = createUser;
 module.exports.getUserData = getUserData;
 module.exports.updateUser = updateUser;
 module.exports.loginUser = loginUser;
+module.exports.deleteUser= deleteUser
